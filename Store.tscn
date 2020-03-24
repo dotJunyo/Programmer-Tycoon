@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Store.gd" type="Script" id=1]
+
+[node name="Store" type="Panel"]
+margin_left = -170.899
+margin_top = 139.437
+margin_right = -105.899
+margin_bottom = 472.437
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="Node2D"]
+
+[node name="btnWorker" type="Button" parent="Node2D"]
+margin_left = 516.034
+margin_top = 701.279
+margin_right = 617.034
+margin_bottom = 746.279
+rect_scale = Vector2( 2, 2 )
+text = "Buy me!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnMoney" type="Button" parent="Node2D"]
+margin_left = 207.934
+margin_top = 654.042
+margin_right = 319.934
+margin_bottom = 722.042
+rect_scale = Vector2( 2, 2 )
+text = "Click me!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblWorkers" type="Label" parent="Node2D"]
+margin_left = 366.786
+margin_top = 583.82
+margin_right = 601.786
+margin_bottom = 636.82
+rect_scale = Vector2( 2, 2 )
+text = "[worker]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblMoney" type="Label" parent="Node2D"]
+margin_left = 58.0239
+margin_top = 490.916
+margin_right = 325.024
+margin_bottom = 606.916
+rect_scale = Vector2( 2, 2 )
+text = "[money]"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Node2D/btnWorker" to="." method="_on_btnWorker_pressed"]
+[connection signal="pressed" from="Node2D/btnMoney" to="." method="_on_btnMoney_pressed"]

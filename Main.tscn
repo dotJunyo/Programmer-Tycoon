@@ -1,0 +1,147 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://graphics/Quarto3.png" type="Texture" id=1]
+[ext_resource path="res://graphics/MesaSS.png" type="Texture" id=2]
+[ext_resource path="res://graphics/Cadeira.png" type="Texture" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://graphics/Monitor/l1_sprite_5.png" type="Texture" id=5]
+[ext_resource path="res://graphics/Monitor/l1_sprite_3.png" type="Texture" id=6]
+[ext_resource path="res://graphics/CarteiraSS.png" type="Texture" id=7]
+[ext_resource path="res://graphics/Monitor/l1_sprite_4.png" type="Texture" id=8]
+[ext_resource path="res://graphics/Monitor/l1_sprite_6.png" type="Texture" id=9]
+[ext_resource path="res://graphics/Monitor/l1_sprite_2.png" type="Texture" id=10]
+[ext_resource path="res://graphics/Monitor/l1_sprite_1.png" type="Texture" id=11]
+[ext_resource path="res://graphics/CarteiraSS3.png" type="Texture" id=12]
+[ext_resource path="res://graphics/CarteiraSS5.png" type="Texture" id=13]
+[ext_resource path="res://graphics/CarteiraSS4.png" type="Texture" id=14]
+[ext_resource path="res://graphics/CarteiraSS2.png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 90, 160 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 90, 0, 90, 160 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "Mesa",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 90, 160 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "Cadeira",
+"speed": 5.0
+} ]
+
+[sub_resource type="AnimatedTexture" id=6]
+frames = 6
+fps = 8.0
+frame_0/texture = ExtResource( 11 )
+frame_1/texture = ExtResource( 10 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 6 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 8 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 5 )
+frame_4/delay_sec = 0.0
+frame_5/texture = ExtResource( 9 )
+frame_5/delay_sec = 0.0
+
+[sub_resource type="AnimatedTexture" id=7]
+frames = 5
+fps = 10.0
+frame_0/texture = ExtResource( 7 )
+frame_1/texture = ExtResource( 15 )
+frame_1/delay_sec = 0.0
+frame_2/texture = ExtResource( 12 )
+frame_2/delay_sec = 0.0
+frame_3/texture = ExtResource( 14 )
+frame_3/delay_sec = 0.0
+frame_4/texture = ExtResource( 13 )
+frame_4/delay_sec = 0.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Mesa" type="AnimatedSprite" parent="."]
+scale = Vector2( 8, 8 )
+z_index = 1
+frames = SubResource( 3 )
+animation = "Mesa"
+speed_scale = 0.0
+centered = false
+
+[node name="Quarto" type="Sprite" parent="."]
+scale = Vector2( 1.6, 1.6 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Cadeira" type="AnimatedSprite" parent="."]
+scale = Vector2( 8, 8 )
+frames = SubResource( 5 )
+animation = "Cadeira"
+centered = false
+
+[node name="Main" type="Button" parent="."]
+margin_right = 720.0
+margin_bottom = 1280.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desenvolver" type="Button" parent="."]
+margin_top = 300.0
+margin_right = 200.0
+margin_bottom = 500.0
+grow_horizontal = 0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = SubResource( 6 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Contratar" type="Button" parent="."]
+margin_top = 500.0
+margin_right = 200.0
+margin_bottom = 700.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = SubResource( 6 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Loja" type="Button" parent="."]
+margin_top = 700.0
+margin_right = 200.0
+margin_bottom = 900.0
+focus_mode = 0
+enabled_focus_mode = 0
+icon = SubResource( 7 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Main" to="." method="_on_Main_pressed"]
+[connection signal="pressed" from="Desenvolver" to="." method="_on_Desenvolver_pressed"]
+[connection signal="pressed" from="Contratar" to="." method="_on_Contratar_pressed"]
+[connection signal="pressed" from="Loja" to="." method="_on_Loja_pressed"]

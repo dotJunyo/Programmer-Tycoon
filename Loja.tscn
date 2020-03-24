@@ -1,0 +1,92 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://graphics/Celular.png" type="Texture" id=1]
+[ext_resource path="res://Loja.gd" type="Script" id=2]
+[ext_resource path="res://graphics/Bateria/Bateria8.png" type="Texture" id=3]
+[ext_resource path="res://graphics/Bateria/Bateria7.png" type="Texture" id=4]
+[ext_resource path="res://graphics/Bateria/Bateria6.png" type="Texture" id=5]
+[ext_resource path="res://graphics/Bateria/Bateria2.png" type="Texture" id=6]
+[ext_resource path="res://graphics/Bateria/Bateria4.png" type="Texture" id=7]
+[ext_resource path="res://graphics/Bateria/Bateria1.png" type="Texture" id=8]
+[ext_resource path="res://graphics/Bateria/Bateria3.png" type="Texture" id=9]
+[ext_resource path="res://graphics/Bateria/Bateria5.png" type="Texture" id=10]
+[ext_resource path="res://Conectado.gd" type="Script" id=11]
+[ext_resource path="res://graphics/Wifi.png" type="Texture" id=12]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 90, 160 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://graphics/FFFFORWA.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = SubResource( 3 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+} ]
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 90, 160 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 12 )
+region = Rect2( 90, 0, 90, 160 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="asprCelular" type="AnimatedSprite" parent="."]
+scale = Vector2( 8, 8 )
+frames = SubResource( 2 )
+centered = false
+
+[node name="lblRelogio" type="Label" parent="."]
+margin_left = 48.0
+margin_top = 8.0
+margin_right = 198.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 4 )
+text = "19:30"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="asprBateria" type="AnimatedSprite" parent="."]
+scale = Vector2( 8, 8 )
+frames = SubResource( 5 )
+centered = false
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource( 11 )
+
+[node name="asprWifi" type="AnimatedSprite" parent="."]
+scale = Vector2( 8, 8 )
+frames = SubResource( 8 )
+centered = false
+[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_HTTPRequest_request_completed"]
