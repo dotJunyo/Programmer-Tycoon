@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://graphics/Celular.png" type="Texture" id=1]
+[ext_resource path="res://graphics/Celular/Celular.png" type="Texture" id=1]
 [ext_resource path="res://Loja.gd" type="Script" id=2]
 [ext_resource path="res://graphics/Bateria/Bateria8.png" type="Texture" id=3]
 [ext_resource path="res://graphics/Bateria/Bateria7.png" type="Texture" id=4]
@@ -12,6 +12,9 @@
 [ext_resource path="res://graphics/Bateria/Bateria5.png" type="Texture" id=10]
 [ext_resource path="res://Conectado.gd" type="Script" id=11]
 [ext_resource path="res://graphics/Wifi.png" type="Texture" id=12]
+[ext_resource path="res://graphics/Celular/Loja.png" type="Texture" id=13]
+[ext_resource path="res://graphics/MesaSpriteSheet.png" type="Texture" id=14]
+[ext_resource path="res://graphics/FFFFORWA.TTF" type="DynamicFontData" id=15]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -24,6 +27,47 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 80, 90, 80 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 14 )
+region = Rect2( 90, 80, 90, 80 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 14 )
+region = Rect2( 270, 80, 90, 80 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 14 )
+region = Rect2( 180, 80, 90, 80 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 13 ), SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=15]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = -4
+extra_spacing_bottom = -4
+extra_spacing_space = -1
+font_data = ExtResource( 15 )
 
 [sub_resource type="DynamicFontData" id=3]
 font_path = "res://graphics/FFFFORWA.TTF"
@@ -64,6 +108,44 @@ scale = Vector2( 8, 8 )
 frames = SubResource( 2 )
 centered = false
 
+[node name="asprLoja" type="AnimatedSprite" parent="."]
+scale = Vector2( 8, 8 )
+frames = SubResource( 9 )
+centered = false
+
+[node name="asprLojaMesa" type="AnimatedSprite" parent="asprLoja"]
+position = Vector2( 5, 19 )
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 14 )
+centered = false
+
+[node name="btnLojaMesa" type="Button" parent="asprLoja/asprLojaMesa"]
+margin_left = 12.0
+margin_top = -21.0
+margin_right = 98.0
+margin_bottom = 72.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblLojaMesa" type="Label" parent="asprLoja/asprLojaMesa"]
+anchor_left = 1.189
+anchor_top = -0.225
+anchor_right = 3.844
+anchor_bottom = 0.85
+margin_left = -0.0100021
+margin_right = 0.039978
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 15 )
+text = "         Mesa
+Valor: R$ 20
+Multiplicador: x2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="lblRelogio" type="Label" parent="."]
 margin_left = 48.0
 margin_top = 8.0
@@ -89,4 +171,19 @@ script = ExtResource( 11 )
 scale = Vector2( 8, 8 )
 frames = SubResource( 8 )
 centered = false
+
+[node name="btnMain" type="Button" parent="."]
+margin_left = 322.0
+margin_top = 1177.0
+margin_right = 399.0
+margin_bottom = 1280.0
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="asprLoja/asprLojaMesa/btnLojaMesa" to="." method="_on_upLojaMesa_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_HTTPRequest_request_completed"]
+[connection signal="button_down" from="btnMain" to="." method="_on_btnMain_button_down"]
+[connection signal="pressed" from="btnMain" to="." method="_on_Voltar_pressed"]

@@ -12,11 +12,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Timer" type="Timer" parent="Node2D"]
-
-[node name="btnWorker" type="Button" parent="Node2D"]
+[node name="btnWorker" type="Button" parent="."]
 margin_left = 516.034
 margin_top = 701.279
 margin_right = 617.034
@@ -27,7 +23,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="btnMoney" type="Button" parent="Node2D"]
+[node name="Timer" type="Timer" parent="."]
+
+[node name="btnMoney" type="Button" parent="."]
 margin_left = 207.934
 margin_top = 654.042
 margin_right = 319.934
@@ -38,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lblWorkers" type="Label" parent="Node2D"]
+[node name="lblWorkers" type="Label" parent="."]
 margin_left = 366.786
 margin_top = 583.82
 margin_right = 601.786
@@ -51,7 +49,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lblMoney" type="Label" parent="Node2D"]
+[node name="lblMoney" type="Label" parent="."]
 margin_left = 58.0239
 margin_top = 490.916
 margin_right = 325.024
@@ -63,5 +61,5 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Node2D/btnWorker" to="." method="_on_btnWorker_pressed"]
-[connection signal="pressed" from="Node2D/btnMoney" to="." method="_on_btnMoney_pressed"]
+[connection signal="pressed" from="btnWorker" to="." method="_on_btnWorker_pressed"]
+[connection signal="pressed" from="btnMoney" to="." method="_on_btnMoney_pressed"]

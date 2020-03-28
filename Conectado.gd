@@ -6,10 +6,11 @@ var check_timer = null
 var wifi
 
 func _ready():
+	_check_connection()
 	check_timer = Timer.new()
 	check_timer.autostart = true
 	check_timer.one_shot = false
-	check_timer.wait_time = 3
+	check_timer.wait_time = 300
 	check_timer.connect("timeout", self, "_check_connection")
 	add_child(check_timer)
 	connect("request_completed", self, "on_request_result")

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/carteira.png-42dddbaee70d7d34f75552c342d5fbcd.stex"
+path="res://.import/MesaSpriteSheet.png-ea37dfe36b44bb92de213dd772318668.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/carteira.png"
-dest_files=[ "res://.import/carteira.png-42dddbaee70d7d34f75552c342d5fbcd.stex" ]
+source_file="res://graphics/MesaSpriteSheet.png"
+dest_files=[ "res://.import/MesaSpriteSheet.png-ea37dfe36b44bb92de213dd772318668.stex" ]
 
 [params]
 

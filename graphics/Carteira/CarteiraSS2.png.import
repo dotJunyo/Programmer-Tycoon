@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CarteiraSS5.png-94cad6aedd1743ec0e4f6f182a9df391.stex"
+path="res://.import/CarteiraSS2.png-76d868d3bb745854cf1741aaecf19416.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/CarteiraSS5.png"
-dest_files=[ "res://.import/CarteiraSS5.png-94cad6aedd1743ec0e4f6f182a9df391.stex" ]
+source_file="res://graphics/Carteira/CarteiraSS2.png"
+dest_files=[ "res://.import/CarteiraSS2.png-76d868d3bb745854cf1741aaecf19416.stex" ]
 
 [params]
 

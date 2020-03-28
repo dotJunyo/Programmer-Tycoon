@@ -11,26 +11,26 @@ func _ready():
 	timer.start()
 
 func UpdateUI():
-	$lblMoney.text = "R$ " + str(Main.money)
-	$lblWorkers.text = str(Main.worker)
+	$lblMoney.text = "R$ " + str(Stats.money)
+	$lblWorkers.text = str(Stats.worker)
 
 func _on_btnWorker_pressed():
-	if Main.money >= Main.worker_price:
-		Main.money -= Main.worker_price
-		Main.worker += 1
-		Main.worker_price += round(Main.worker/4)
+	if Stats.money >= Stats.worker_price:
+		Stats.money -= Stats.worker_price
+		Stats.worker += 1
+		Stats.worker_price += round(Stats.worker/4)
 		print("Trabalhador comprado!")
-		$lblWorkers.text = str(Main.worker)
-		$btnWorker.text = str(Main.worker_price)
+		$lblWorkers.text = str(Stats.worker)
+		$btnWorker.text = str(Stats.worker_price)
 		UpdateUI()
 	else:
 		print("Sem dinheiro!")
 
 func _on_btnMoney_pressed():
 	print("Botão pressionado!")
-	Main.money += 1
+	Stats.money += 1
 	UpdateUI()
 	
 func Workers():
-	Main.money += Main.worker
+	Stats.money += Stats.worker
 	UpdateUI()

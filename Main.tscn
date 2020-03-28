@@ -1,35 +1,44 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://graphics/Quarto3.png" type="Texture" id=1]
-[ext_resource path="res://graphics/MesaSS.png" type="Texture" id=2]
+[ext_resource path="res://graphics/MesaSpriteSheet.png" type="Texture" id=2]
 [ext_resource path="res://graphics/Cadeira.png" type="Texture" id=3]
 [ext_resource path="res://Main.gd" type="Script" id=4]
 [ext_resource path="res://graphics/Monitor/l1_sprite_5.png" type="Texture" id=5]
 [ext_resource path="res://graphics/Monitor/l1_sprite_3.png" type="Texture" id=6]
-[ext_resource path="res://graphics/CarteiraSS.png" type="Texture" id=7]
+[ext_resource path="res://graphics/Carteira/CarteiraSS.png" type="Texture" id=7]
 [ext_resource path="res://graphics/Monitor/l1_sprite_4.png" type="Texture" id=8]
 [ext_resource path="res://graphics/Monitor/l1_sprite_6.png" type="Texture" id=9]
 [ext_resource path="res://graphics/Monitor/l1_sprite_2.png" type="Texture" id=10]
 [ext_resource path="res://graphics/Monitor/l1_sprite_1.png" type="Texture" id=11]
-[ext_resource path="res://graphics/CarteiraSS3.png" type="Texture" id=12]
-[ext_resource path="res://graphics/CarteiraSS5.png" type="Texture" id=13]
-[ext_resource path="res://graphics/CarteiraSS4.png" type="Texture" id=14]
-[ext_resource path="res://graphics/CarteiraSS2.png" type="Texture" id=15]
+[ext_resource path="res://graphics/Carteira/CarteiraSS3.png" type="Texture" id=12]
+[ext_resource path="res://graphics/Carteira/CarteiraSS5.png" type="Texture" id=13]
+[ext_resource path="res://graphics/Carteira/CarteiraSS4.png" type="Texture" id=14]
+[ext_resource path="res://graphics/Carteira/CarteiraSS2.png" type="Texture" id=15]
+[ext_resource path="res://graphics/FFFFORWA.TTF" type="DynamicFontData" id=16]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 90, 160 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
 region = Rect2( 90, 0, 90, 160 )
 
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 270, 0, 90, 160 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 180, 0, 90, 160 )
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 12 ), SubResource( 11 ) ],
 "loop": true,
 "name": "Mesa",
-"speed": 5.0
+"speed": 8.0
 } ]
 
 [sub_resource type="AtlasTexture" id=4]
@@ -72,6 +81,10 @@ frame_3/delay_sec = 0.0
 frame_4/texture = ExtResource( 13 )
 frame_4/delay_sec = 0.0
 
+[sub_resource type="DynamicFont" id=8]
+size = 40
+font_data = ExtResource( 16 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -81,6 +94,7 @@ z_index = 1
 frames = SubResource( 3 )
 animation = "Mesa"
 speed_scale = 0.0
+playing = true
 centered = false
 
 [node name="Quarto" type="Sprite" parent="."]
@@ -138,6 +152,17 @@ enabled_focus_mode = 0
 icon = SubResource( 7 )
 flat = true
 expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 720.0
+margin_bottom = 132.0
+custom_fonts/font = SubResource( 8 )
+text = "R$ 1000000"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
