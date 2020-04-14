@@ -28,7 +28,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
@@ -36,47 +36,43 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 14 )
 region = Rect2( 0, 80, 90, 80 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 14 )
 region = Rect2( 90, 80, 90, 80 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 14 )
 region = Rect2( 270, 80, 90, 80 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 14 )
 region = Rect2( 180, 80, 90, 80 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 13 ), SubResource( 12 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=15]
-size = 32
+[sub_resource type="DynamicFont" id=9]
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_top = -4
-extra_spacing_bottom = -4
-extra_spacing_space = -1
 font_data = ExtResource( 15 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=10]
 font_path = "res://graphics/FFFFORWA.TTF"
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=11]
 size = 32
-font_data = SubResource( 3 )
+font_data = SubResource( 10 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": false,
@@ -84,17 +80,17 @@ animations = [ {
 "speed": 0.0
 } ]
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 12 )
 region = Rect2( 0, 0, 90, 160 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 12 )
 region = Rect2( 90, 0, 90, 160 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -110,13 +106,13 @@ centered = false
 
 [node name="asprLoja" type="AnimatedSprite" parent="."]
 scale = Vector2( 8, 8 )
-frames = SubResource( 9 )
+frames = SubResource( 3 )
 centered = false
 
 [node name="asprLojaMesa" type="AnimatedSprite" parent="asprLoja"]
 position = Vector2( 5, 19 )
 scale = Vector2( 0.25, 0.25 )
-frames = SubResource( 14 )
+frames = SubResource( 8 )
 centered = false
 
 [node name="btnLojaMesa" type="Button" parent="asprLoja/asprLojaMesa"]
@@ -138,10 +134,11 @@ margin_left = -0.0100021
 margin_right = 0.039978
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 9 )
 text = "         Mesa
 Valor: R$ 20
 Multiplicador: x2"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -151,7 +148,7 @@ margin_left = 48.0
 margin_top = 8.0
 margin_right = 198.0
 margin_bottom = 74.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 11 )
 text = "19:30"
 align = 1
 valign = 1
@@ -161,7 +158,7 @@ __meta__ = {
 
 [node name="asprBateria" type="AnimatedSprite" parent="."]
 scale = Vector2( 8, 8 )
-frames = SubResource( 5 )
+frames = SubResource( 12 )
 centered = false
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
@@ -169,7 +166,7 @@ script = ExtResource( 11 )
 
 [node name="asprWifi" type="AnimatedSprite" parent="."]
 scale = Vector2( 8, 8 )
-frames = SubResource( 8 )
+frames = SubResource( 15 )
 centered = false
 
 [node name="btnMain" type="Button" parent="."]
@@ -185,5 +182,4 @@ __meta__ = {
 }
 [connection signal="pressed" from="asprLoja/asprLojaMesa/btnLojaMesa" to="." method="_on_upLojaMesa_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_HTTPRequest_request_completed"]
-[connection signal="button_down" from="btnMain" to="." method="_on_btnMain_button_down"]
 [connection signal="pressed" from="btnMain" to="." method="_on_Voltar_pressed"]
